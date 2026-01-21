@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}View Timetable{% endblock %}
+
+{% block content %}
+<div class="timetable-header">
+    <h3 style="margin: 5px 0; font-size: 18px;">Department of Computer Science & Engineering</h3>
+    <h2 style="margin: 5px 0;">Academic Year 2025-2026 (Even Semester)</h2>
+    
+    <div style="display: flex; justify-content: space-between; margin-top: 15px; font-weight: bold;">
+        <span>Year: {{ year }}</span>
+        <span>Course: {{ course }}</span>
+    </div>
+</div>
+
+<div class="timetable-container">
+    <table class="timetable">
+        <tr>
+            <th>Day</th>
+            <th>P1</th><th>P2</th><th>P3</th>
+            <th>P4</th><th>LUNCH</th><th>P5</th><th>P6</th><th>P7</th><th>P8</th>
+        </tr>
+
+        {% for day, periods in timetable.items() %}
+        <tr>
+            <td class="day-cell">{{ day }}</td>
+            {% for p in periods %}
+                <td>{{ p|safe }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<br>
+<div style="text-align: center;">
+    <a class="btn" href="/print?year={{ year }}&course={{ course }}" target="_blank">🖨️ Print Timetable</a>
+</div>
+{% endblock %}

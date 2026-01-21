@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Timetable{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>College Timetable Management</h1>
+    <nav>
+        <a href="/">Admin</a>
+        <a href="/faculty">Faculty</a>
+        <a href="/student">Student</a>
+        <a href="/logout">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    © 2026 College Timetable System
+</footer>
+
+</body>
+</html>

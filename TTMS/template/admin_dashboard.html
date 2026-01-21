@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h2>Generate Timetable</h2>
+
+<form method="POST" action="/generate">
+    <div class="form-row">
+        <div>
+            <label>Year</label>
+            <select name="year" required>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Course</label>
+            <select name="course" required>
+                <option>CSE</option>
+                <option>AIDS</option>
+                <option>ECE</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit">Generate Timetable</button>
+</form>
+{% endblock %}

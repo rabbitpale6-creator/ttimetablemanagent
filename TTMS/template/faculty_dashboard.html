@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Faculty Dashboard{% endblock %}
+
+{% block content %}
+<h2>Faculty Schedule</h2>
+
+<form method="POST">
+    <label>Select Faculty</label>
+    <select name="staff_id" required>
+        {% for id, name in staff_list %}
+            <option value="{{ id }}">{{ name }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit">View Schedule</button>
+</form>
+
+{% if schedule %}
+<table>
+    <tr>
+        <th>Day</th>
+        <th>Period</th>
+        <th>Subject</th>
+        <th>Year</th>
+        <th>Course</th>
+    </tr>
+    {% for row in schedule %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }} - {{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+        <td>{{ row[5] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

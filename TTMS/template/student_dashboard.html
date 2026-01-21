@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<h2>Student Dashboard</h2>
+<p>Select your academic details to view your timetable.</p>
+
+<form method="GET" action="/view_timetable">
+    <div class="form-row">
+        <div>
+            <label>Year</label>
+            <select name="year" required>
+                <option value="">Select Year</option>
+                <option>I</option>
+                <option>II</option>
+                <option>III</option>
+                <option>IV</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Course</label>
+            <select name="course" required>
+                <option value="">Select Course</option>
+                <option>CSE</option>
+                <option>AIDS</option>
+                <option>ECE</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit">View Timetable</button>
+</form>
+{% endblock %}
